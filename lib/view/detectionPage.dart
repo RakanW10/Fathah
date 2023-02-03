@@ -1,5 +1,8 @@
 import 'package:fathah/style.dart';
+import 'package:fathah/view/components/btn.dart';
+import 'package:fathah/view/components/bullteText.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DetectionPage extends StatelessWidget {
   const DetectionPage({super.key});
@@ -20,30 +23,36 @@ class DetectionPage extends StatelessWidget {
         ),
         body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text("لنتائج افضل يرجى اتباع \nالخطوات التالية",
-                  style: TextStyle(
-                    fontSize: 28,
-                  ),
-                  textAlign: TextAlign.center),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text(
-                    "\u2022",
-                    style: TextStyle(fontSize: 18),
-                  ), //bullet text
-                  SizedBox(
-                    width: 10,
-                  ), //space between bullet and text
-                  Text(
-                    " ضع التمرة على خلفية بيضاء",
-                    style: TextStyle(fontSize: 18),
-                  )
+              const SizedBox(
+                height: 80,
+              ),
+              Text(
+                "لنتائج افضل يرجى اتباع \nالخطوات التالية",
+                style: TextStyle(
+                  fontSize: 28,
+                  color: appColors.primary,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              const BulletText(
+                strs: [
+                  "ضع التمرة على خلفية بيضاء",
+                  "ضع تمرة واحده فقط في منتصف الصورة",
+                  "اجعل المسافة بين الكاميره والتمرة قرابة 5 سم",
+                  "تأكد من وجود إضاءة كافية في المكان"
                 ],
               ),
+              const SizedBox(
+                height: 100,
+              ),
+              BTN(label: "التقاط صورة", onPressed: () {}),
+              BTN(label: "اختيار صورة من الألبوم", onPressed: () {}),
             ],
           ),
         ));
