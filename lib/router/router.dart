@@ -1,3 +1,4 @@
+import 'package:fathah/view/detailsPage.dart';
 import 'package:fathah/view/detectionPage.dart';
 import 'package:fathah/view/homepage.dart';
 import 'package:fathah/view/AppNavigator.dart';
@@ -16,10 +17,15 @@ List<GetPage> router = [
     name: RouterName.detectionPage,
     page: () => const DetectionPage(),
   ),
+  GetPage(
+    name: RouterName.detailsPage,
+    page: () => DetailsPage(),
+  ),
 ];
 
 abstract class RouterName {
   static String appNavigator = "/";
   static String homepage = "/homepage";
   static String detectionPage = "/detectionPage";
+  static String detailsPage = "/detailsPage";
 }

@@ -7,26 +7,27 @@ class BulletText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 30),
-      alignment: Alignment.centerLeft,
-      height: 100,
       child: ListView.builder(
+        padding: EdgeInsets.zero,
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: strs.length,
         itemBuilder: (context, index) => Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               "\u2022",
               style: TextStyle(fontSize: 18, color: appColors.primary),
-            ), //bullet text
+            ),
             const SizedBox(
               width: 10,
-            ), //space between bullet and text
-            Text(
-              strs[index],
-              style: TextStyle(fontSize: 18, color: appColors.primary),
+            ),
+            Expanded(
+              child: Text(
+                strs[index],
+                style: TextStyle(fontSize: 18, color: appColors.primary),
+              ),
             )
           ],
         ),

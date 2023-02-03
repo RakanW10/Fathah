@@ -40,13 +40,16 @@ class DetectionPage extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              const BulletText(
-                strs: [
-                  "ضع التمرة على خلفية بيضاء",
-                  "ضع تمرة واحده فقط في منتصف الصورة",
-                  "اجعل المسافة بين الكاميره والتمرة قرابة 5 سم",
-                  "تأكد من وجود إضاءة كافية في المكان"
-                ],
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: BulletText(
+                  strs: [
+                    "ضع التمرة على خلفية بيضاء",
+                    "ضع تمرة واحده فقط في منتصف الصورة",
+                    "اجعل المسافة بين الكاميره والتمرة قرابة 5 سم",
+                    "تأكد من وجود إضاءة كافية في المكان"
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 100,

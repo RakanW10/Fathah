@@ -17,7 +17,7 @@ class AppNavigator extends StatelessWidget {
       builder: (controller) => Scaffold(
         body: currentScreen,
         bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: const Color(0xFF939393),
+          unselectedItemColor: appColors.disable,
           selectedItemColor: appColors.primary,
           backgroundColor: appColors.secondary,
           type: BottomNavigationBarType.shifting,
