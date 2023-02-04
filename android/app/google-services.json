@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "931756988579",
+    "project_id": "fathah-dc98c",
+    "storage_bucket": "fathah-dc98c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931756988579:android:c1888b939c80cd6e3c0716",
+        "android_client_info": {
+          "package_name": "com.example.fathah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931756988579-n6dd5jsjamqpig7itvvhct96t0ao7qob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGpWAvRcn7oSxWUtmckW3OAZCqmX0rwaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931756988579-n6dd5jsjamqpig7itvvhct96t0ao7qob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
