@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: RouterName.detailsPage,
-      // initialRoute: RouterName.appNavigator,
+      // initialRoute: RouterName.detailsPage,
+      initialRoute: RouterName.appNavigator,
       getPages: router,
       locale: const Locale("ar", "SA"),
       theme: ThemeData(

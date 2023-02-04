@@ -1,73 +1,9 @@
+import 'package:fathah/dummyData.dart';
+import 'package:fathah/router/router.dart';
 import 'package:fathah/style.dart';
 import 'package:fathah/view/components/mainBox.dart';
 import 'package:flutter/material.dart';
-
-//! Temp data, simulated for DB
-const data = [
-  {
-    "name": "العجوة",
-    "image": "assets/images/Ajwa.png",
-    "description": "test",
-    "place": "testPlace",
-    "benefits": "testBenefits",
-  },
-  {
-    "name": "الجالكسي",
-    "image": "assets/images/Galaxy.jpg",
-    "description": "test",
-    "place": "testPlace",
-    "benefits": "testBenefits",
-  },
-  {
-    "name": "المجدول",
-    "image": "assets/images/Medjool.png",
-    "description": "test",
-    "place": "testPlace",
-    "benefits": "testBenefits",
-  },
-  {
-    "name": "المنيفي",
-    "image": "assets/images/Meneifi.jpeg",
-    "description": "test",
-    "place": "testPlace",
-    "benefits": "testBenefits",
-  },
-  {
-    "name": "نبتة علي",
-    "image": "assets/images/NabtatAli.png",
-    "description": "test",
-    "place": "testPlace",
-    "benefits": "testBenefits",
-  },
-  {
-    "name": "الرطب",
-    "image": "assets/images/Rutab.png",
-    "description": "test",
-    "place": "testPlace",
-    "benefits": "testBenefits",
-  },
-  {
-    "name": "الشيشي",
-    "image": "assets/images/Shaishe.png",
-    "description": "test",
-    "place": "testPlace",
-    "benefits": "testBenefits",
-  },
-  {
-    "name": "السكري",
-    "image": "assets/images/Sokari.png",
-    "description": "test",
-    "place": "testPlace",
-    "benefits": "testBenefits",
-  },
-  {
-    "name": "الصقعي",
-    "image": "assets/images/Sugaey.jpg",
-    "description": "test",
-    "place": "testPlace",
-    "benefits": "testBenefits",
-  },
-];
+import 'package:get/get.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -98,7 +34,9 @@ class Homepage extends StatelessWidget {
           itemBuilder: (context, index) => MainBox(
             backgroundImage: AssetImage(data[index]["image"]!),
             label: data[index]["name"]!,
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(RouterName.detailsPage, arguments: dateDate[index]);
+            },
           ),
         ),
       ),

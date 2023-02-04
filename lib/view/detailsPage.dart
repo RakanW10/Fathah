@@ -1,13 +1,25 @@
 import 'package:fathah/controller/detailsPageController.dart';
 import 'package:fathah/style.dart';
 import 'package:fathah/view/components/bullteText.dart';
+import 'package:fathah/view/components/description.dart';
 import 'package:fathah/view/components/myDivider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DetailsPage extends StatelessWidget {
-  const DetailsPage({super.key});
-
+  const DetailsPage({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.benefits,
+    required this.image,
+    required this.place,
+  });
+  final AssetImage image;
+  final String title;
+  final String place;
+  final String description;
+  final List<String> benefits;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,24 +27,39 @@ class DetailsPage extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-          Container(
-            height: Get.height * 0.35,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/Ajwa.png"),
-                fit: BoxFit.fill,
+          Stack(
+            children: [
+              Container(
+                height: Get.height * 0.35,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: image,
+                    fit: BoxFit.fill,
+                  ),
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //     color: Colors.red,
+                  //   ),
+                  //   BoxShadow(
+                  //       color: appColors.background,
+                  //       spreadRadius: -12.0,
+                  //       blurRadius: 12.0,
+                  //       offset: Offset(0, -10)),
+                  // ],
+                ),
               ),
-              // boxShadow: [
-              //   BoxShadow(
-              //     color: Colors.red,
-              //   ),
-              //   BoxShadow(
-              //       color: appColors.background,
-              //       spreadRadius: -12.0,
-              //       blurRadius: 12.0,
-              //       offset: Offset(0, -10)),
-              // ],
-            ),
+              Container(
+                margin:
+                    const EdgeInsets.symmetric(vertical: 40, horizontal: 25),
+                child: IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: const Icon(Icons.arrow_back_ios),
+                  color: appColors.primary,
+                ),
+              )
+            ],
           ),
           const SizedBox(
             height: 8,
@@ -43,7 +70,7 @@ class DetailsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "العجوة",
+                  title,
                   style: TextStyle(
                     color: appColors.primary,
                     fontSize: 32,
@@ -51,48 +78,7 @@ class DetailsPage extends StatelessWidget {
                   ),
                 ),
                 const MyDicider(),
-                Text(
-                  "الوصف",
-                  style: TextStyle(
-                    color: appColors.primary,
-                    fontSize: 24,
-                  ),
-                ),
-                GetBuilder(
-                  init: DetalisPageController(),
-                  builder: (controller) => Column(
-                    children: [
-                      Text(
-                        "تمر العجوة، والمقصود به أنّه يتم إزالة البذور الموجودة داخل ثمار التمر الناضجة، ثمّ يتم طحنها وضغطها، ويُسحب الماء من داخلها، هذا ويعتبر تمر العجوة مفيد جداً للجسم تمر العجوة، والمقصود به أنّه يتم إزالة البذور الموجودة داخل ثمار التمر الناضجة، ثمّ يتم طحنها وضغطها، ويُسحب الماء من داخلها، هذا ويعتبر تمر العجوة مفيد جداً للجسم تمر العجوة، والمقصود به أنّه يتم إزالة البذور الموجودة داخل ثمار التمر الناضجة، ثمّ يتم طحنها وضغطها، ويُسحب الماء من داخلها، هذا ويعتبر تمر العجوة مفيد جداً للجسم",
-                        maxLines: controller.isReadMore ? null : 3,
-                        overflow: controller.isReadMore
-                            ? null
-                            : TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: appColors.primary,
-                          fontSize: 18,
-                        ),
-                      ),
-                      Container(
-                        width: Get.width,
-                        alignment: Alignment.centerLeft,
-                        child: InkWell(
-                          onTap: () {
-                            controller.chageReadMore();
-                          },
-                          child: Text(
-                            controller.isReadMore ? "اظهر اقل" : "اظهر المزيد",
-                            style: TextStyle(
-                              color: appColors.primary,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                Description(description: description),
                 const MyDicider(),
                 Text(
                   "المكان",
@@ -102,7 +88,7 @@ class DetailsPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "المدينة",
+                  place,
                   style: TextStyle(
                     color: appColors.primary,
                     fontSize: 18,
@@ -116,14 +102,7 @@ class DetailsPage extends StatelessWidget {
                     fontSize: 24,
                   ),
                 ),
-                const BulletText(strs: [
-                  "تساعد في في تنظيم ضغط الدم ، كما تحسين من وظائف الكلى.",
-                  "تقي من تصلب الشرايين",
-                  "تقي من تصلب الشرايين",
-                  "تساعد في في تنظيم ضغط الدم ، كما تحسين من وظائف الكلى.",
-                  "تساعد في في تنظيم ضغط الدم ، كما تحسين من وظائف الكلى.",
-                  "تساعد في في تنظيم ضغط الدم ، كما تحسين من وظائف الكلى.",
-                ])
+                BulletText(strs: benefits)
               ],
             ),
           ),
