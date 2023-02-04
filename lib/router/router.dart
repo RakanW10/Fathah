@@ -1,3 +1,4 @@
+import 'package:fathah/router/bindingClasses.dart';
 import 'package:fathah/view/detailsPage.dart';
 import 'package:fathah/view/detectionPage.dart';
 import 'package:fathah/view/homepage.dart';
@@ -9,6 +10,7 @@ List<GetPage> router = [
   GetPage(
     name: RouterName.appNavigator,
     page: () => AppNavigator(),
+    binding: AppNavigatorBinding(),
   ),
   GetPage(
     name: RouterName.homepage,
@@ -16,7 +18,7 @@ List<GetPage> router = [
   ),
   GetPage(
     name: RouterName.detectionPage,
-    page: () => const DetectionPage(),
+    page: () => DetectionPage(),
   ),
   GetPage(
     name: RouterName.detailsPage,
